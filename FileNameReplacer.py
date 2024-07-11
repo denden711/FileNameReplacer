@@ -18,9 +18,11 @@ def replace_filenames():
     if not old_text:
         messagebox.showerror("Error", "置換前の文字列を入力してください。")
         return
+
     if not new_text:
-        messagebox.showerror("Error", "置換後の文字列を入力してください。")
-        return
+        result = messagebox.askyesno("確認", "置換後の文字列が空欄です。ファイル名から文字列を削除しますか？")
+        if not result:
+            return
 
     success_count = 0
     fail_count = 0
